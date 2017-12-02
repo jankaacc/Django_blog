@@ -1,4 +1,4 @@
-#!/home/jankaacc/repos/TryDjango1.10/venv/bin/python3
+#!/home/jankaacc/repos/trydjango/venv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

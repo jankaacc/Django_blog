@@ -1,4 +1,4 @@
-#!/home/jankaacc/repos/TryDjango1.10/venv/bin/python
+#!/home/jankaacc/repos/trydjango/venv/bin/python
 
 import sys
 import getopt

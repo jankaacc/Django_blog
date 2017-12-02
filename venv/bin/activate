@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/jankaacc/repos/TryDjango1.10/venv"
+VIRTUAL_ENV="/home/jankaacc/repos/trydjango/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
