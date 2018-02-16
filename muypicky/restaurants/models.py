@@ -60,8 +60,7 @@ class Restaurant(models.Model):
 
 
 def rest_pre_save_reciever(sender,instance, *args, **kwargs):
-    # print('saving ..')
-    # print(instance.timestamp)
+
     if instance.category:
         cat = instance.category.lower()
         cat = cat.capitalize()
@@ -69,9 +68,5 @@ def rest_pre_save_reciever(sender,instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
 
-# def rest_post_save_reciever(sender,instance, created, *args, **kwargs):
-#     print('saved')
-#     print(instance.timestamp)
 
 pre_save.connect(rest_pre_save_reciever, sender=Restaurant)
-# post_save.connect(rest_post_save_reciever, sender=Restaurant)

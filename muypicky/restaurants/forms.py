@@ -17,7 +17,7 @@ class RestaurantCreateForm(forms.Form):
 
 
 class RestaurantLocationCreateForm(forms.ModelForm):
-    #email           = forms.EmailField()
+
     category         = forms.CharField(required=False, validators=[validate_category])
     class Meta:
         model = Restaurant
@@ -33,9 +33,3 @@ class RestaurantLocationCreateForm(forms.ModelForm):
         if name == "Hello":
             raise forms.ValidationError("Not a valid name")
         return name
-
-    # def clean_email(self):
-    #     email = self.cleaned_data.get("email")
-    #     if ".edu" in email:
-    #         raise forms.ValidationError("We do not accept edu emails")
-    #     return email

@@ -31,9 +31,6 @@ class ItemDetailView(LoginRequiredMixin, DetailView):
 
     def get_queryset(self, **kwargs):
         return Item.objects.filter(user = self.request.user)
-    # def get_context_data(self, *args ,**kwargs):
-    #     # context = super(ItemDetailView, self).get_context_data(*args, **kwargs)
-    #     print(kwargs)
 
 
 class ItemCreateView(LoginRequiredMixin, CreateView):

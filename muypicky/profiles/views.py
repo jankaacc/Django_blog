@@ -38,10 +38,6 @@ class RegisterView(CreateView):
     template_name = 'registration/register.html'
     success_url = '/login'
 
-    # def dispatch(self, request, *args, **kwargs):
-    #     if self.request.user.is_authenticated():
-    #         return redirect('/login')
-    #     return super(RegisterView, self).dispatch(request, *args, **kwargs)
 
 class ProfileFollowToggle(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
@@ -60,15 +56,20 @@ class ProfileDetailView(DetailView):
     def get_object(self, *args, **kwargs):
         username = self.kwargs.get('username')
         object = get_object_or_404(User, username=username)
+        # # print(object)
         return object
 
 
     def get_context_data(self,*args, **kwargs):
         context = super(ProfileDetailView, self).get_context_data()
-        user = context['user']
+        print(context)
+        user = context['object']
         is_following = False
-        if user.profile in self.request.user.is_following.all():
+        # if user.profile in self.request.user.is_following.all():
+        #     is_following = True
+        if self.request.user in user.profile.followers.all():
             is_following = True
+
         context['is_following'] = is_following
         query = self.request.GET.get('q')
         items_exist = Item.objects.filter(user=user).exists()

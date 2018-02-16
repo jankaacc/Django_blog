@@ -20,8 +20,7 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self): #get_absolute_url
-        #return f"/restaurants/{self.slug}"
+    def get_absolute_url(self):
         return reverse('menus:detail', kwargs={'pk': self.pk})
 
     class Meta:
